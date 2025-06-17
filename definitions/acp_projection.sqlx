@@ -1,0 +1,18 @@
+-- definitions/acp_projection.sqlx
+config {
+    type: "table",
+    description: "Projection des données sur les nouvelles composantes principales",
+    database: "financial-data-storage",
+    schema: "DJI_Ind_Tech",
+    dependencies: ["modele_acp", "DJI_Candlestick_Patterns_TI"]
+}
+
+SELECT
+    Date,
+    principal_component_1,
+    principal_component_2,
+    principal_component_3
+FROM ML.PREDICT(
+    MODEL `financial-data-storage.clean_data_preprod.modele_acp`,
+    (FROM ${ref("DJI_Ind_Tech", "DJI_Candlestick_Patterns_TI")})
+)
