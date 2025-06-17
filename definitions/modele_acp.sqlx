@@ -9,7 +9,7 @@ config {
 CREATE OR REPLACE MODEL `financial-data-storage.DJI_Ind_Tech.modele_acp`
 OPTIONS(
     model_type='PCA',
-    num_principal_components=3
+    num_principal_components=6
 ) AS
 SELECT
     CDL2CROWS,
