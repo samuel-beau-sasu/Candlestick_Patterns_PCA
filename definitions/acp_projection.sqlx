@@ -13,6 +13,6 @@ SELECT
     principal_component_2,
     principal_component_3
 FROM ML.PREDICT(
-    MODEL `financial-data-storage.clean_data_preprod.modele_acp`,
+    MODEL `financial-data-storage.DJI_Ind_Tech.modele_acp`,
     (FROM ${ref("DJI_Ind_Tech", "DJI_Candlestick_Patterns_TI")})
 )
